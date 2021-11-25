@@ -2,18 +2,12 @@ import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import { graphCms } from "../lib/graphCms";
+import { ICategory } from "../@interfaces";
 
 import Style from "../styles/Header.module.css";
 
-interface Icategory {
-  color: {
-    css: string;
-  };
-  name: string;
-}
-
 const Header: FC = () => {
-  const [categoryLinks, setCategoryLinks] = useState<Icategory[]>([]);
+  const [categoryLinks, setCategoryLinks] = useState<ICategory[]>([]);
 
   const getCategories = async (): Promise<void> => {
     const { categories } = await graphCms.request(`
