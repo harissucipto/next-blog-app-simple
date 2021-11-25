@@ -1,10 +1,38 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
+import { graphCms } from "../lib/graphCms";
 
 import Style from "../styles/Header.module.css";
 
+interface Icategory {
+  color: {
+    css: string;
+  };
+  name: string;
+}
+
 const Header: FC = () => {
+  const [categoryLinks, setCategoryLinks] = useState<Icategory[]>([]);
+
+  const getCategories = async () => {
+    const { categories } = await graphCms.request(`
+    query MyQuery {
+      categories {
+        name
+        color {
+          css
+        }
+      }
+    }
+  `);
+    setCategoryLinks(categories);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <header className="border-b border-white border-opacity-30 py-5 ">
       <div className="flex justify-between items-center">
@@ -13,16 +41,13 @@ const Header: FC = () => {
         </Link>
 
         <ul className="flex gap-7 capitalize font-thin">
-          <li>
-            <Link href="/">
-              <a>Category 1</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a>Category 1</a>
-            </Link>
-          </li>
+          {categoryLinks.map((category) => (
+            <li key={category.name}>
+              <Link href="/">
+                <a style={{ color: category.color.css }}>{category.name}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>
