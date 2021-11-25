@@ -15,7 +15,7 @@ interface Icategory {
 const Header: FC = () => {
   const [categoryLinks, setCategoryLinks] = useState<Icategory[]>([]);
 
-  const getCategories = async () => {
+  const getCategories = async (): Promise<void> => {
     const { categories } = await graphCms.request(`
     query MyQuery {
       categories {
@@ -35,7 +35,7 @@ const Header: FC = () => {
 
   return (
     <header className="border-b border-white border-opacity-30 py-5 ">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center max-w-5xl m-auto px-2">
         <Link href="/">
           <a className={classNames(Style.logo, "text-4xl")}>ShareIt.</a>
         </Link>
@@ -43,7 +43,7 @@ const Header: FC = () => {
         <ul className="flex gap-7 capitalize font-thin">
           {categoryLinks.map((category) => (
             <li key={category.name}>
-              <Link href="/">
+              <Link href={category.name}>
                 <a style={{ color: category.color.css }}>{category.name}</a>
               </Link>
             </li>
