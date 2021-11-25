@@ -11,7 +11,10 @@ const Post: FC<PostProps> = ({ post }) => {
   return (
     <Link href={`/posts/${post.slug}`}>
       <a>
-        <div className=" relative h-80 cursor-pointer transform hover:scale-105  transition duration-300 ease-in-out ">
+        <div
+          className=" relative h-80 cursor-pointer transform hover:scale-105  transition duration-300 ease-in-out"
+          style={{ border: `1px solid ${post.categories[0].color.css}` }}
+        >
           <Image
             src={post.thumbnail.url}
             alt=""
