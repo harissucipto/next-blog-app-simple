@@ -9,8 +9,8 @@ interface IndexProps {
 
 const index: FC<IndexProps> = ({ posts }) => {
   return (
-    <div className="max-w-5xl m-auto px-2">
-      <div className="grid grid-cols-2 gap-6 py-10">
+    <div className="max-w-5xl m-auto px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 py-10">
         {posts.map((post) => (
           <Post key={post.slug} post={post} />
         ))}
