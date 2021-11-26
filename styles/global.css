@@ -9,3 +9,9 @@
     @apply bg-black text-white font-open-sans;
   }
 }
+
+@layer components {
+  .my-container {
+    @apply max-w-5xl m-auto px-10;
+  }
+}

@@ -29,7 +29,7 @@ const Header: FC = () => {
 
   return (
     <header className="border-b border-white border-opacity-30 py-5 ">
-      <div className="flex justify-between items-center max-w-5xl m-auto px-2">
+      <div className="flex justify-between items-center my-container">
         <Link href="/">
           <a className={classNames(Style.logo, "text-4xl")}>ShareIt.</a>
         </Link>
