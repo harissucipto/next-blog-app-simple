@@ -6,7 +6,7 @@ export interface IPost {
   thumbnail?: {
     url: string;
   };
-  createdAt: Date;
+  createdAt: string;
   categories?: ICategory[];
   content: {
     html: string;

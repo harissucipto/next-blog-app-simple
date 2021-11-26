@@ -1,6 +1,7 @@
 import { GetStaticProps, GetStaticPropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { FC } from "react";
+import { format } from "date-fns";
 
 import Style from "../../styles/SinglePost.module.css";
 import { IPost } from "../../@interfaces";
@@ -13,7 +14,9 @@ const SinglePost: FC<IPostProps> = ({ post }) => {
     <div className="my-container">
       <div className="p-5 ">
         <h1 className="text-3xl text-red-300 capitalize">{post.title}</h1>
-        <h3 className="pt-2 pb-7 ">{post.createdAt}</h3>
+        <h3 className="pt-2 pb-7 ">
+          {format(new Date(post.createdAt), "EEEE, dd, yyy")}
+        </h3>
         <div
           className={Style.formatter}
           dangerouslySetInnerHTML={{ __html: post.content.html }}
