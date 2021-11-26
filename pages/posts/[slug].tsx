@@ -13,7 +13,9 @@ const SinglePost: FC<IPostProps> = ({ post }) => {
   return (
     <div className="my-container">
       <div className="p-5 ">
-        <h1 className="text-3xl text-red-300 capitalize">{post.title}</h1>
+        <h1 className="text-3xl font-bold text-red-300 capitalize">
+          {post.title}
+        </h1>
         <h3 className="pt-2 pb-7 ">
           {format(new Date(post.createdAt), "EEEE, dd, yyy")}
         </h3>

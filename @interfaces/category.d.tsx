@@ -1,5 +1,5 @@
 export interface ICategory {
-  color: {
+  color?: {
     css: string;
   };
   name: string;
