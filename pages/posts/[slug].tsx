@@ -1,6 +1,8 @@
 import { GetStaticProps, GetStaticPropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { FC } from "react";
+
+import Style from "../../styles/SinglePost.module.css";
 import { IPost } from "../../@interfaces";
 import { graphCms } from "../../lib/graphCms";
 
@@ -9,7 +11,14 @@ interface IPostProps extends IProps {}
 const SinglePost: FC<IPostProps> = ({ post }) => {
   return (
     <div className="my-container">
-      <h1>{post?.title}</h1>
+      <div className="p-5 ">
+        <h1 className="text-3xl text-red-300 capitalize">{post.title}</h1>
+        <h3 className="pt-2 pb-7 ">{post.createdAt}</h3>
+        <div
+          className={Style.formatter}
+          dangerouslySetInnerHTML={{ __html: post.content.html }}
+        />
+      </div>
     </div>
   );
 };
