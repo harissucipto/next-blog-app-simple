@@ -18,7 +18,7 @@ const CategoryPage: FC<ICategoryPageProps> = ({ posts }) => {
   return (
     <div className="my-container">
       <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2">
-        {posts.map((post) => (
+        {posts.reverse().map((post) => (
           <Post key={post.slug} post={post} />
         ))}
       </div>
