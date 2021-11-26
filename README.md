@@ -1,4 +1,4 @@
-![gambar-app]('./app.JPG');
+![gambar-app]('https://github.com/harissucipto/next-blog-app-simple/blob/main/app.JPG?raw=true');
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
