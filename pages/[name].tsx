@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Head from "next/head";
 import {
   GetStaticProps,
   GetStaticPropsResult,
@@ -16,13 +17,22 @@ interface ICategoryPageProps extends IProps {}
 
 const CategoryPage: FC<ICategoryPageProps> = ({ posts }) => {
   return (
-    <div className="my-container">
-      <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2">
-        {posts.reverse().map((post) => (
-          <Post key={post.slug} post={post} />
-        ))}
+    <>
+      <Head>
+        <title>shareIt. | {posts[0].categories[0].name || ""}</title>
+        <meta
+          name="description"
+          content="Where programming topics shared everyday"
+        ></meta>
+      </Head>
+      <div className="my-container">
+        <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2">
+          {posts.reverse().map((post) => (
+            <Post key={post.slug} post={post} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

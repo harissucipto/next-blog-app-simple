@@ -1,13 +1,13 @@
 import { ICategory } from "./category.d";
 
 export interface IPost {
-  title?: string;
-  slug?: string;
-  thumbnail?: {
+  title: string;
+  slug: string;
+  thumbnail: {
     url: string;
   };
   createdAt: string;
-  categories?: ICategory[];
+  categories: ICategory[];
   content: {
     html: string;
   };
